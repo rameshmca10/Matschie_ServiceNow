@@ -8,4 +8,5 @@ public class baseAPI {
 	public Response response;
 	public ValidatableResponse json;
 	public RequestSpecification request;
+	public String IncidentSysID;
 }
