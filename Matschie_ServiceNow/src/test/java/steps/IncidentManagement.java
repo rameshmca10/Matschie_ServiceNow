@@ -76,19 +76,18 @@ public class IncidentManagement extends baseAPI {
 			}
 		}
 	}
-	
+
 	@When("short description is updated with (.*)$")
 	public void update_short_description(String short_desc) {
 		request = request.when().body("{\"short_description\" : \"" + short_desc + "\"}");
 	}
-	
+
 	@When("existing incident is updated")
 	public void existing_incident_updated() {
-		System.out.println("sysid: "+IncidentSysID);
-		response = request.when().contentType(ContentType.JSON).put("incident/846c39212f200110fa64ad2ef699b64a");
+		System.out.println("updating sysid: " + IncidentSysID);
+		response = request.when().contentType(ContentType.JSON).put("incident/" + IncidentSysID);
 		response.prettyPrint();
-		IncidentSysID = response.jsonPath().getString("result.sys_id");
-		System.out.println("Updated sysid: " + IncidentSysID);
+
 	}
-	
+
 }
